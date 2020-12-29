@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "myapp2-e4370": {
+      "hosting": {
+        "proyectoFirebase": [
+          "myapp2-e4370"
+        ]
+      }
+    }
+  }
+}
