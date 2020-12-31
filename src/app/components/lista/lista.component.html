@@ -1,0 +1,56 @@
+<div class="alert alert-warning" role="alert" *ngFor="let editarUsuario of items">
+    {{editarUsuario.id}} - {{editarUsuario.apellido}} {{editarUsuario.nombre}}
+    <div class="float-right" (click)="eliminar(editarUsuario)">
+        <fa-icon [icon]= "faTrashAlt"></fa-icon>
+    </div>
+    <div class="float-right mx-4" (click)="editar(editarUsuario)" data-toggle="modal" data-target="#exampleModal">
+        <fa-icon [icon] = "faPencilAlt"></fa-icon>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Editar: {{editarUsuario.apellido}}, {{editarUsuario.nombre}}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form (ngSubmit)="agregarUsuarioEditado()">
+                <div class="form-group">
+                    <label for="apellido">Apellido</label>
+                    <input id="apellido" class="form-control" type="text" name="apellido" [(ngModel)]="editarUsuario.apellido">
+                </div>
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input id="nombre" class="form-control" type="text" name="nombre" [(ngModel)]="editarUsuario.nombre">
+                </div>
+                <div class="form-group">
+                    <label for="correo">Email:</label>
+                    <input id="correo" class="form-control" type="email" name="correo" [(ngModel)]="editarUsuario.correo">
+                </div>
+                <div class="form-group">
+                    <label for="pais">País</label>
+                    <input id="pais" class="form-control" type="text" name="pais" [(ngModel)]="editarUsuario.pais">
+                </div>
+                <div class="form-group">
+                    <label for="ciudad">Ciudad</label>
+                    <input id="ciudad" class="form-control" type="text" name="ciudad" [(ngModel)]="editarUsuario.ciudad">
+                </div>
+                <div class="btn-group" role="group" aria-label="Button group">
+                    <button type="submit" class="btn btn-warning">Guardar Cambios</button>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>          
+        </div>
+      </div>
+    </div>
+</div>
+<!-- <i class="far fa-trash-alt"></i> -->
+
